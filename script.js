@@ -1,31 +1,17 @@
-square1.addEventListener('mouseover', function(){
-	square2.style.backgroundColor = '#6F4E37';
-	square3.style.backgroundColor = '#6F4E37';
-})
+const squares = document.querySelectorAll('.square');
 
-square1.addEventListener('mouseout', function(){
-	square2.style.backgroundColor = '#E6E6FA';
-	square3.style.backgroundColor = '#E6E6FA';
-})
+squares.forEach(square => {
+    square.addEventListener('mouseover', () => {
+        squares.forEach(sq => {
+            if (sq !== square) {
+                sq.style.backgroundColor = '#6F4E37';
+            }
+        });
+    });
 
-
-square2.addEventListener('mouseover', function(){
-	square1.style.backgroundColor = '#6F4E37';
-	square3.style.backgroundColor = '#6F4E37';
-})
-
-square2.addEventListener('mouseout', function(){
-	square1.style.backgroundColor = '#E6E6FA';
-	square3.style.backgroundColor = '#E6E6FA';
-})
-
-
-square3.addEventListener('mouseover', function(){
-	square2.style.backgroundColor = '#6F4E37';
-	square1.style.backgroundColor = '#6F4E37';
-})
-
-square3.addEventListener('mouseout', function(){
-	square2.style.backgroundColor = '#E6E6FA';
-	square1.style.backgroundColor = '#E6E6FA';
-})
+    square.addEventListener('mouseout', () => {
+        squares.forEach(sq => {
+            sq.style.backgroundColor = '#E6E6FA';
+        });
+    });
+});
